@@ -1,72 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="6c62fb4d-437b-448f-a90a-4f8e7b01b779" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/documents/20180315_170551.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/documents/5f5fc08028404b798275e6682865b87d.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/documents/14361336_1212524535489203_8227764876497993478_o.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/documents/14606486_1603056103050117_4657678433413699663_n_J4wJRMM.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/documents/14606486_1603056103050117_4657678433413699663_n_Lfjo229.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/documents/14606486_1603056103050117_4657678433413699663_n_RIkwZVE.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/documents/14606486_1603056103050117_4657678433413699663_n_u7GkOpV.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/documents/18157115_1522227571161389_3083541133325570592_n.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/documents/18157115_1522227571161389_3083541133325570592_n_8RpiFDs.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/documents/18157115_1522227571161389_3083541133325570592_n_aX8tLmO.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/documents/18157115_1522227571161389_3083541133325570592_n_aXD5BPB.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/documents/18157115_1522227571161389_3083541133325570592_n_oUB3txs.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/documents/20180227_201440.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/documents/20180227_201440_6BysJT1.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/documents/20180309_191004.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/documents/20180315_170551.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/documents/20180315_170551_u9O9lxm.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/documents/29258254_1822282557831448_8693906217677574213_n.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/documents/453914912.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/documents/7dedb8e499cd2b6352283d53c1d121e9.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/documents/7dedb8e499cd2b6352283d53c1d121e9_52Qak2b.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/documents/7dedb8e499cd2b6352283d53c1d121e9_A779ZVc.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/documents/7dedb8e499cd2b6352283d53c1d121e9_Fb5UxSQ.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/documents/7dedb8e499cd2b6352283d53c1d121e9_tnTk5TP.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/documents/A1MTWm8.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/documents/A1MTWm8_QKBqn8e.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/documents/A1MTWm8_yjmjnkB.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/documents/B612_20180201_162237.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/documents/B612_20180201_162237_3UaIXCN.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/documents/B612_20180201_162237_4wq2eMn.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/documents/B612_20180201_162237_PSZCzzh.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/documents/B612_20180201_162237_pFsal1S.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/documents/B612_20180201_162237_uQb81gJ.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/documents/B612_20180201_162237_xbZxStd.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/documents/B612_20180419_164911___.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/documents/B612_20180419_164936_.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/documents/B612_20180419_164936__bTEKcaY.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/documents/Father-of-the-Bride-Lookalike-house.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/documents/High-Fade-with-Quiff-and-Full-Beard.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/documents/High-Fade-with-Quiff-and-Full-Beard_gGoTc7L.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/documents/WBS-software-upgrade.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/documents/WBS-software-upgrade_yvsXgBx.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/documents/download.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/documents/download_E72rzzq.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/documents/download_i4N9bHb.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/documents/download_p9QJiPM.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/documents/house-image-beautiful-home-immege-chief-on-design-in-conjuntion-with-best-25-houses-ideas-pinterest-dream-nice-and-18.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/documents/images.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/documents/images_Ib6MGPS.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/documents/images_PnWIwmM.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/documents/images_VLfv4bj.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/documents/the-21-most-expensive-houses-for-sale-in-the-hamptons.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/documents/the-21-most-expensive-houses-for-sale-in-the-hamptons_AWlblCm.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/documents/the-21-most-expensive-houses-for-sale-in-the-hamptons_wq3wAsc.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/profile_pics/14606486_1603056103050117_4657678433413699663_n.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/profile_pics/18157115_1522227571161389_3083541133325570592_n.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/profile_pics/18157115_1522227571161389_3083541133325570592_n_FzujJSW.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/profile_pics/18157115_1522227571161389_3083541133325570592_n_YePdmJ2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/profile_pics/download.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/profile_pics/images.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/profile_pics/images_lRtJIDD.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/myFYP/templates/myFYP/userProperties.html" beforeDir="false" afterPath="$PROJECT_DIR$/myFYP/templates/myFYP/userProperties.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myFYP/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/myFYP/views.py" afterDir="false" />
-    </list>
+    <list default="true" id="6c62fb4d-437b-448f-a90a-4f8e7b01b779" name="Default" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -108,7 +43,7 @@
       <file leaf-file-name="userProperties.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/myFYP/templates/myFYP/userProperties.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="218">
+            <state relative-caret-position="116">
               <caret line="89" column="65" lean-forward="true" selection-start-line="89" selection-start-column="65" selection-end-line="89" selection-end-column="65" />
               <folding>
                 <element signature="n#style#0;n#button#0;n#span#0;n#div#2;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#1;n#!!top" expanded="true" />
@@ -172,11 +107,6 @@
             <path>
               <item name="FinalYearProject" type="b2602c69:ProjectViewProjectNode" />
               <item name="FinalYearProject" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="FinalYearProject" type="b2602c69:ProjectViewProjectNode" />
-              <item name="FinalYearProject" type="462c0819:PsiDirectoryNode" />
-              <item name="media" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="FinalYearProject" type="b2602c69:ProjectViewProjectNode" />
@@ -335,7 +265,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/myFYP/templates/myFYP/userProperties.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="218">
+        <state relative-caret-position="116">
           <caret line="89" column="65" lean-forward="true" selection-start-line="89" selection-start-column="65" selection-end-line="89" selection-end-column="65" />
           <folding>
             <element signature="n#style#0;n#button#0;n#span#0;n#div#2;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#1;n#!!top" expanded="true" />
