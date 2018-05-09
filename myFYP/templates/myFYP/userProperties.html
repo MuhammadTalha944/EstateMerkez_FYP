@@ -87,12 +87,16 @@
 
                             <div class="property-footer">
                               <span class="right">
-                                <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#myModal">delete</button>
+                                <button type="button" class="btn" style="background-color: #830e0a" data-toggle="modal" data-target="#myModal">
+                                    <font color="white">delete</font> </button>
                             <a href="{% url 'myFYP:edit' product.id %}">
                           <button type="button" class="btn btn-warning">Edit</button>
                         </a>
                               <br>
                             </span>
+                            </div>
+                            <div class="property-footer">
+
                             </div>
                         </div>
                     </div>
@@ -111,7 +115,8 @@
                         </div>
                         <div class="modal-footer">
                           <a href="{% url 'myFYP:delete' product.id %}">
-                        <button type="button" class="btn btn-danger">Delete it</button>
+                        <button type="button" class="btn " style="background-color: #830e0a">
+                            <font color="white" >Delete it</font></button>
                       </a>
                         </div>
                       </div>

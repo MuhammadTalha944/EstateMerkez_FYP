@@ -123,7 +123,7 @@ def detail(request ,product_id):
     try:
         product = Products.objects.get(id=product_id)
     except Products.DoesNotExist:
-        raise Http404('This products does not exist')
+        return render(request, 'myFYP/404.html')
     return render(request, 'myFYP/propertydetail.html',{'product':product})
 
 def properties(request):
