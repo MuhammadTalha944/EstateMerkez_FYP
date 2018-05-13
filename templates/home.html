@@ -67,58 +67,64 @@
                 <form method="GET" action="/request_page/ ">
 				{% csrf_token %}
                     <div class="row">
-                        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
-                            <div class="form-group">
-                              <label>Choose location</label>
-                                <select class="selectpicker search-fields" name="bedrooms" data-live-search="true" data-live-search-placeholder="Search value" >
-                                    <option>Locality</option>
-                                    <option>johar town</option>
-                                    <option>Allama Iqbal Town</option>
-									<option>Bahria Town</option>
-									<option>Wapda Town</option>
-									<option>Model Town</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="col-lg-2 col-md-2 col-sm-4 col-xs-4">
-                            <div class="form-group">
-                              <label>Property type</label>
-                                <select class="selectpicker search-fields" name="mytextbox" data-live-search="true" data-live-search-placeholder="Search value" >
-                                    <option>Type</option>
-                                    <option>0</option>
-									                  <option>1</option>
+                      <div class="col-lg-2 col-md-2 col-sm-4 col-xs-4">
+                          <div class="form-group">
+                              <select class="selectpicker search-fields" name="locations"  required>
+                                  <option value="">Locality</option>
+                                  <option>Johar Town</option>
+                                  <option>Allama Iqbal Town</option>
+                                  <option>Bahria Town</option>
+                                  <option>Wapda Town</option>
+                                  <option>Model Town</option>
+                                  <option>Samanabad</option>
+                                  <option>Sabzazar Scheme</option>
+                                  <option>Gulberg</option>
+                                  <option>Paragon City</option>
+                                  <option>Harbanspura</option>
+                                  <option>Cavalry Ground</option>
+                                  <option>Township</option>
+                                  <option>Eden</option>
+                                  <option>DHA Defence</option>
+                                  <option>Garden Town</option>
+                                  <option>EME Society</option>
+                                  <option>Faisal Town</option>
+                                  <option>Gulshan-e-Ravi</option>
+                                  <option>Punjab Coop Housing Society</option>
 
-                                </select>
-                            </div>
-                        </div>
+                              </select>
+                          </div>
+                  </div>
 
-						<div class="col-lg-2 col-md-2 col-sm-4 col-xs-4">
-                            <div class="form-group">
-                              <label>Min Price</label>
-                                <input class="selectpicker search-fields" placeholder="&nbsp;&nbsp;Min Price" name="myminbox">
+                      <div class="col-lg-2 col-md-2 col-sm-4 col-xs-4">
+                          <div class="form-group">
+                              <select class="selectpicker search-fields" name="mytextbox" required="required">
+                                  <option value="">Property Status</option>
+                                  <option>Buy</option>
+                                  <option>Rent</option>
+                              </select>
+                          </div>
+                      </div>
 
-                                </input>
-                            </div>
-            </div>
+          <div class="col-lg-2 col-md-2 col-sm-4 col-xs-4">
+                          <div class="form-group">
+                              <input class="selectpicker search-fields"  id="123" placeholder="&nbsp; &nbsp; Min Price" type="number" min="25000" step="5000" name="myminbox" required="required" onchange="document.getElementById('cash').min=this.value;">
 
-						<div class="col-lg-2 col-md-2 col-sm-4 col-xs-4">
-                            <div class="form-group">
-                              <label>Max Price</label>
-                                <input class="selectpicker search-fields" placeholder="&nbsp;&nbsp;Max Price" name="mymaxbox">
+                              </input>
+                          </div>
+          </div>
 
-                                </input>
-                            </div>
-                        </div>
+          <div class="col-lg-2 col-md-2 col-sm-4 col-xs-4">
+                          <div class="form-group">
+                              <input class="selectpicker search-fields" id="cash" placeholder="&nbsp; &nbsp;Max Price" type="number" min="document.getElementById('123').value" step="5000" name="mymaxbox" required>
 
-                        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6 ">
-                          <br>
+                              </input>
+                          </div>
+          </div>
+
+                      <div class="col-lg-2 col-md-2 col-sm-4 col-xs-4 ">
                             <div class="form-group">
                                 <!-- <button class="search-button" id="mybtn">Search</button> -->
-
-                <button type="submit" name="mybtn" id="abc" class="btn button-md button-theme callScraper" data-animation="animated fadeInUp delay-05s">
-                  Find Property
-                </button>
-
+								                        <input type="submit" class="search-button" value="Search" name="mybtn">
                             </div>
                         </div>
                     </div>

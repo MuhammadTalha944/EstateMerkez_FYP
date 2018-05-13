@@ -71,9 +71,9 @@ def addproperty(request):
             current_user = request.user
             emailad = current_user.email
             email = EmailMessage('Property Added ', 'You have just uploaded a property on our site EstateMerkez.com',
-                                 'talhaishtiaq944@gmail.com',
+                                 'estatemerkez@gmail.com',
                                  [emailad],
-                                 reply_to=['talhaishtiaq944@gmail.com'])
+                                 reply_to=['estatemerkez@gmail.com'])
             email.send()
             form.save()
             return myproperties(request)

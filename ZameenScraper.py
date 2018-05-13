@@ -132,10 +132,10 @@ class Zameen:
 
             listings[int(listing['data-index'])] = single
 
-        page_info = soup.find('div', attrs={'class' : 'pg_counts'}).text
-
-        current_page = int(page_info.split(" ")[1])
-        total_pages = int(page_info.split(" ")[3].strip())
+        # page_info = soup.find('div', attrs={'class' : 'pg_counts'}).text
+        #
+        # current_page = int(page_info.split(" ")[1])
+        # total_pages = int(page_info.split(" ")[3].strip())
         return listings
         #return single['price']
         #return single['link']
