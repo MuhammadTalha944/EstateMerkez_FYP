@@ -30,7 +30,7 @@ def contact(request):
             #form = [message,'Phone_Number',Phone_Number, 'name',name]
             email = EmailMessage(subject,message,
                                      from_email,
-                                     ['smackburg@gmail.com', 'talhaishtiaq944@gmail.com'],
+                                     ['estatemerkez@gmail.com'],
                                      reply_to=[from_email])
             email.send()
             form = contactForm()
@@ -114,8 +114,10 @@ def properties(request):
 @login_required(login_url='/myFYP/signup/')
 def edit(request,pk):
     template = 'myFYP/submit-property.html'
-    products = get_object_or_404(Products, pk=pk)
-
+    try:
+        products = Products.objects.get(id=pk)
+    except:
+        return render(request, 'myFYP/404.html')
     if request.method == 'POST':
         form = ProductForm(request.POST,request.FILES, instance=products)
 
