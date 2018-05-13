@@ -1,6 +1,7 @@
 {% extends "header.html"%}
 {% load staticfiles %}
 {% block content %}
+{% load widget_tweaks %}
 <div class="content">
     <div class="container">
         <div class="row">
@@ -13,11 +14,43 @@
                   <h1>Register Here</h1>
                   <h3>Just fill out the form.</h3>
 
-                  <form enctype="multipart/form-data" method="POST">
+                      <form enctype="multipart/form-data" method="POST">
                     {% csrf_token %}
-                    {{ user_form.as_p }}
-                    {{ profile_form.as_p }}
-                    <input type="submit" name="" value="Register">
+                    {% for hidden in user_form.hidden_fields %}
+                      {{ hidden }}
+                    {% endfor %}
+
+                    {% for field in user_form.visible_fields %}
+                      <div class="form-group">
+                        <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+                        {{ field|add_class:'form-control' }}
+
+                        {% for error in field.errors %}
+                          <span class="help-block">{{ error }}</span>
+                        {% endfor %}
+                      </div>
+                    {% endfor %}
+
+                    {% for field in profile_form.visible_fields %}
+                      <div class="form-group">
+                        <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+                        {{ field|add_class:'form-control' }}
+
+                        {% for error in field.errors %}
+                          <span class="help-block">{{ error }}</span>
+                        {% endfor %}
+                      </div>
+                    {% endfor %}
+
+                                <button type="submit" class="search-button" >Sign up</button>
+                    <br>
+                      <div class="footer">
+                        <span>
+                            I want to <a href="{% url 'myFYP:main_login' %}">return to login</a>
+
+                        </span>
+                    </div>
+                    <br>
                   </form>
 
                 {% endif %}
@@ -25,12 +58,7 @@
                         <!-- Form end-->
                     </div>
                     <!-- Footer -->
-                    <div class="footer">
-                        <span>
-                            I want to <a href="{% url 'myFYP:main_login' %}">return to login</a>
 
-                        </span>
-                    </div>
                 </div>
                 <!-- Form content box end -->
             </div>

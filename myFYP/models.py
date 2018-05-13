@@ -49,7 +49,7 @@ class Products(models.Model):
         ('rent' , 'rent')
     )
     location = models.CharField(max_length=30, choices=Area_Choices, default='mustafa_town')
-    propertyTitle = models.CharField(max_length=200)
+    Property_Title = models.CharField(max_length=200)
     description = models.CharField(max_length=20000 )
     document = models.FileField(upload_to='documents/', blank=False, max_length=500)
     uploaded_at = models.DateTimeField(auto_now_add=True)
@@ -59,17 +59,17 @@ class Products(models.Model):
     BathRooms  = models.IntegerField()
     address = models.CharField(max_length=200)
     city = models.CharField(max_length=100)
-    postalCode = models.IntegerField()
-    buildingAge = models.CharField(max_length=100)
-    freeParking = models.CharField(max_length=30, choices=select_option, default='yes')
-    swimmingPool = models.CharField(max_length=30, choices=select_option, default='yes')
-    airCondition = models.CharField(max_length=30, choices=select_option, default='yes')
-    sqft_Measurement = models.CharField(max_length=100)
-    contactName =  models.CharField(max_length=100)
-    contactEmail = models.CharField(max_length=100)
-    contactPhone = models.CharField(max_length=100)
+    Postal_code = models.IntegerField()
+    Building_age = models.CharField(max_length=100)
+    Free_parking = models.CharField(max_length=30, choices=select_option, default='yes')
+    Swimming_pool = models.CharField(max_length=30, choices=select_option, default='yes')
+    Air_condition = models.CharField(max_length=30, choices=select_option, default='yes')
+    Sqft_Measurement = models.CharField(max_length=100)
+    Conact_Name =  models.CharField(max_length=100)
+    Contact_Email = models.CharField(max_length=100)
+    Contact_Phone = models.CharField(max_length=100)
     def __str__(self):
-        return self.propertyTitle + '-' + self.status +'-' + self.price + '-' + self.location  + '-' + self.contactName + '-' + self.contactEmail +'-' + self.contactPhone + '-' + self.city
+        return self.Property_Title + '-' + self.status +'-' + self.price + '-' + self.location  + '-' + self.Conact_Name + '-' + self.Contact_Email +'-' + self.Contact_Phone + '-' + self.city
 
 
 
@@ -86,11 +86,11 @@ class Localities(models.Model):
         ('lake city','lake city'),
     )
     location = models.CharField(max_length=30 , choices=locations_choice, default='mustafa town')
-    rate_locality = models.CharField(max_length=20)
-    rate_cleanliness = models.CharField(max_length=20)
-    rate_security = models.CharField(max_length=20)
-    rate_parks = models.CharField(max_length=20)
-    playGrounds = models.CharField(max_length=20)
+    rate_locality = models.IntegerField()
+    rate_cleanliness = models.IntegerField()
+    rate_security = models.IntegerField()
+    rate_parks = models.IntegerField()
+    playGrounds = models.IntegerField()
 
     def __str__(self):
         return self.location

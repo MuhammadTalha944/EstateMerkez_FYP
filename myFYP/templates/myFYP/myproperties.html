@@ -38,7 +38,7 @@
                         <div class="property-content">
                             <!-- title -->
                             <h1 class="title">
-                                <a href="{% url 'myFYP:detail' product.id %}">{{ product.propertyTitle }}</a>
+                                <a href="{% url 'myFYP:detail' product.id %}">{{ product.Property_Title }}</a>
                             </h1>
                             <!-- Property address -->
                             <h4 class="property-address">
@@ -60,18 +60,18 @@
                                 </li>
                                 <li>
                                    <i class="fa fa-envelope" aria-hidden="true"></i>
-                                    <span>{{ product.postalCode }}</span>
+                                    <span>{{ product.Postal_code }}</span>
                                 </li>
                                 <li>
                                    <i class="fa fa-car" aria-hidden="true"></i>
-                                    <span>{{ product.freeParking }}</span>
+                                    <span>{{ product.Free_parking }}</span>
                                 </li>
                             </ul>
                             <!-- Property footer -->
                             <div class="property-footer">
                                 <span class="left"><b>Supplier Name</b></span>
                                 <span class="right">
-                                    <a href="#"><b>{{ product.contactName }}</b></a>
+                                    <a href="#"><b>{{ product.Conact_Name }}</b></a>
                                 </span>
 
                             </div>

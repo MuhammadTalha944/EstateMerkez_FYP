@@ -70,7 +70,9 @@ def addproperty(request):
         if form.is_valid():
             current_user = request.user
             emailad = current_user.email
-            email = EmailMessage('Property Added ', 'You have just uploaded a property on our site EstateMerkez.com',
+            email = EmailMessage('Property Added ', 'You have just uploaded a '
+                                                    'property on our site. Estate Merkez.com ... '
+                                                    'if this was not you then let us know ',
                                  'estatemerkez@gmail.com',
                                  [emailad],
                                  reply_to=['estatemerkez@gmail.com'])
@@ -100,7 +102,6 @@ def defence_properties(request):
     products = Products.objects.filter(location="defence")
     return render(request, 'myFYP/myproperties.html',{'products':products})
 
-
 def detail(request ,product_id):
     try:
         product = Products.objects.get(id=product_id)
@@ -108,6 +109,8 @@ def detail(request ,product_id):
         return render(request, 'myFYP/404.html')
     return render(request, 'myFYP/propertydetail.html',{'product':product})
 
+
+@login_required(login_url='/myFYP/signup/')
 def properties(request):
     products = Products.objects.filter(user=request.user)
     return render(request, 'myFYP/userProperties.html',{'products':products})
