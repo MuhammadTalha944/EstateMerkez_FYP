@@ -7,7 +7,7 @@
     <div class="container">
         <div class="row">
           <div class="col-lg-7 col-md-7 col-sm-7 col-xs-7">
-              <center><h1>Send Message to Admin</h1></center>
+              <center><h1>Message to Admin <i class="fa fa-paper-plane"></i></h1></center>
             {% load widget_tweaks %}
               <div class="col-md-12">
               <form method="post" action="" method="post" enctype="multipart/form-data">
@@ -21,8 +21,9 @@
                       {% endif %}
                   </div>
               {% endfor %}
-
-              <center><button type="submit" class="btn btn-primary">Submit</button></center>
+                  <center><button type="submit" class="search-button" >
+                      Send Messege  <i class="fa fa-paper-plane"></i>
+                  </button></center>
               <br>
               </form>
           </div></div>

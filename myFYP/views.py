@@ -11,15 +11,11 @@ from django.contrib.auth.decorators import login_required
 from django.shortcuts import get_object_or_404
 from django.core.mail import send_mail, BadHeaderError, EmailMessage
 from django.contrib.messages import constants as messages
-
 class SignUp(CreateView):
     form_class = forms.UserCreateForm
     success_url = reverse_lazy("login")
     template_name = "myFYP/signup.html"
-"""
-class Contact(TemplateView):
-    template_name = "myFYP/Contact.html"
-    """
+
 def contact(request):
     if request.method == 'POST':
         form = contactForm(request.POST,)
@@ -41,26 +37,6 @@ def contact(request):
             return render(request, 'myFYP/contact.html', {
                 'form': form
             })
-            '''
-            if subject and message and from_email:
-                try:
-                    send_mail(subject,
-                              str(form),
-                              from_email,
-                              ['smackburg@gmail.com'],
-                              fail_silently=False)
-                    return contact(request)
-                except BadHeaderError:
-                    return HttpResponse('Invalid header found.')
-                    '''
-                #messages.success(request, 'Enquiry email successfully sent')
-                #return render(request, 'myFYP/contact.html', {
-                #    'form': form
-                #})
-            '''
-            form.save()
-            return contact(request)
-            '''
     else:
         form = contactForm()
         return render(request, 'myFYP/contact.html', {
@@ -92,6 +68,13 @@ def addproperty(request):
     if request.method == 'POST':
         form = ProductForm(request.POST, request.FILES)
         if form.is_valid():
+            current_user = request.user
+            emailad = current_user.email
+            email = EmailMessage('Property Added ', 'You have just uploaded a property on our site EstateMerkez.com',
+                                 'talhaishtiaq944@gmail.com',
+                                 [emailad],
+                                 reply_to=['talhaishtiaq944@gmail.com'])
+            email.send()
             form.save()
             return myproperties(request)
     else:
@@ -100,10 +83,9 @@ def addproperty(request):
         'form': form
     })
 
-
 def myproperties(request):
     products = Products.objects.all()
-    return render(request, 'myFYP/myproperties.html',{'products':products})
+    return render(request, 'myFYP/myproperties.html' , {'products':products})
 def iqbalTown(request):
     products = Products.objects.filter(location="iqbal town")
     return render(request, 'myFYP/myproperties.html',{'products':products})
@@ -147,27 +129,11 @@ def edit(request,pk):
         form = ProductForm(instance=products)
 
     context = {
-        'form' : form,
-        'products' : products,
+        'form': form,
+        'products': products,
     }
     return render(request, template, context)
-"""
-    try:
-            #product = Products.objects.get(id=product_id)
-        instance = Products.objects.get(id=prop_id)
-        form = ProductForm(request.POST or None, request.FILES, instance=instance)
-        if form.is_valid():
-            instance = form.save(commit=False)
-            instance.save()
-            return properties(request)
-        context = {
-            "instance":instance,
-            "form":form
-        }
-        return render(request, 'myFYP/update_form.html', context)
-    except Products.DoesNotExist:
-            raise Http404('This products does not exist')
-"""
+
 #def edit(request):
 #    return render(request, 'myFYP/contact.html')
 @login_required(login_url='/myFYP/signup/')
@@ -221,8 +187,6 @@ def eden_rev(request):
 def lake_rev(request):
     reviews = Localities.objects.filter(location="lake city")
     return render(request, 'myFYP/detailedReview.html',{'reviews': reviews})
-
-
 
 def register(request):
 
