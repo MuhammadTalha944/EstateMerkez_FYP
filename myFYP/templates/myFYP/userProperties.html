@@ -40,7 +40,7 @@
                         <div class="property-content">
                             <!-- title -->
                             <h1 class="title">
-                                <a href="{% url 'myFYP:detail' product.id %}">{{ product.Property_Title }}</a>
+                                <a href="{% url 'myFYP:detail' product.id %}">{{ product.propertyTitle }}</a>
                             </h1>
                             <!-- Property address -->
                             <h4 class="property-address">
@@ -62,18 +62,18 @@
                                 </li>
                                 <li>
                                    <i class="fa fa-envelope" aria-hidden="true"></i>
-                                    <span>{{ product.Postal_code }}</span>
+                                    <span>{{ product.postalCode }}</span>
                                 </li>
                                 <li>
                                    <i class="fa fa-car" aria-hidden="true"></i>
-                                    <span>{{ product.Free_parking }}</span>
+                                    <span>{{ product.freeParking }}</span>
                                 </li>
                             </ul>
                             <!-- Property footer -->
                             <div class="property-footer">
                                 <span class="left"><b>Supplier Name</b></span>
                                 <span class="right">
-                                    <a href="#"><b>{{ product.Conact_Name }}</b></a>
+                                    <a href="#"><b>{{ product.contactName }}</b></a>
                                 </span>
 
                             </div>
@@ -87,7 +87,7 @@
 
                             <div class="property-footer">
                               <span class="right">
-                                <button type="button" class="btn" style="background-color: #830e0a" data-toggle="modal" data-target="#myModel_delete">
+                                <button type="button" class="btn" style="background-color: #830e0a" data-toggle="modal" data-target="#newModal">
                                     <font color="white">delete</font> </button>
                             <a href="{% url 'myFYP:edit' product.id %}">
                           <button type="button" class="btn btn-warning">Edit</button>
@@ -101,8 +101,9 @@
                         </div>
                     </div>
                 </div>
-                <div class="modal fade" id="myModel_delete" role="dialog">
+                <div class="modal fade" id="newModal" role="dialog">
                     <div class="modal-dialog">
+
                       <!-- Modal content-->
                       <div class="modal-content">
                         <div class="modal-header">

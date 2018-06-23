@@ -1,11 +1,13 @@
-{% extends "header.html" %}
+{% extends "header.html"%}
+{% load staticfiles %}
 {% load bootstrap3 %}
+ {% block content %}
 
-{% block content %}
-<div class="container">
-  <div class="content-area">
-      <div class="container">
-          <div class="row"><div class="col-lg-12">
+<!-- Content area start -->
+<div class="content-area">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
                 <!-- Form content box start -->
                 <div class="form-content-box">
                     <!-- details -->
@@ -14,22 +16,28 @@
                         <div class="main-title">
                             <h1><span>Login</span></h1>
                         </div>
-                            <form method="POST">
-                                {% csrf_token %}
-                                {% bootstrap_form form %}
-                                <button type="submit" class="search-button" >Login</button>
-                            </form>
+                        <!-- Form start -->
+          <form method="post" action="">
+
+          {% csrf_token %}
+          {% bootstrap_form form %}
+          <button type="submit" class="search-button" >login</button>
+
+
+        </form>
+                        <!-- Form end -->
                     </div>
                     <!-- Footer -->
                     <div class="footer">
                         <span>
-                            Don't have account ? <a href="{% url 'myFYP:signup' %}">Sign up now</a>
+                            Don't have an account yet? <a href="{% url 'myFYP:signup' %}">Sign up now</a>
                         </span>
                     </div>
                 </div>
-  </div>
-  </div>
-  </div>
-  </div>
-  </div>
+                <!-- Form content box end -->
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Content area end -->
 {% endblock %}

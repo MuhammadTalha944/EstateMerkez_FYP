@@ -6,6 +6,7 @@ from django.conf import settings
 from django.contrib.auth.models import User
 from django_userforeignkey.models.fields import UserForeignKey
 
+
 '''
 class User(auth.models.User, auth.models.PermissionsMixin):
 
@@ -36,10 +37,14 @@ class UserProfileInfo(models.Model):
 class Products(models.Model):
     user = UserForeignKey(auto_user_add=True, verbose_name="The user that is automatically assigned", related_name="mymodels")
     Area_Choices = (
-        ('mustafa town', 'mustafa town'),
+        ('mustafa town','mustafa town'),
+        ('iqbal town','iqbal town'),
         ('johar town', 'johar town'),
-        ('iqbal town', 'iqbal town'),
         ('defence', 'defence'),
+        ('Awan town','Awan town'),
+        ('Wapda town','Wapda town'),
+        ('Eden', 'Eden'),
+        ('Lake city', 'Lake city')
     )
     select_option = (
         ('yes','yes'),('no','no')
@@ -49,9 +54,9 @@ class Products(models.Model):
         ('rent' , 'rent')
     )
     location = models.CharField(max_length=30, choices=Area_Choices, default='mustafa_town')
-    Property_Title = models.CharField(max_length=200)
+    propertyTitle = models.CharField(max_length=200)
     description = models.CharField(max_length=20000 )
-    document = models.FileField(upload_to='documents/', blank=False, max_length=500)
+    document = models.FileField(upload_to='documents/')
     uploaded_at = models.DateTimeField(auto_now_add=True)
     status = models.CharField(max_length=30, choices=status_option, default='sale')
     price = models.CharField(max_length=100)
@@ -59,17 +64,17 @@ class Products(models.Model):
     BathRooms  = models.IntegerField()
     address = models.CharField(max_length=200)
     city = models.CharField(max_length=100)
-    Postal_code = models.IntegerField()
-    Building_age = models.CharField(max_length=100)
-    Free_parking = models.CharField(max_length=30, choices=select_option, default='yes')
-    Swimming_pool = models.CharField(max_length=30, choices=select_option, default='yes')
-    Air_condition = models.CharField(max_length=30, choices=select_option, default='yes')
-    Sqft_Measurement = models.CharField(max_length=100)
-    Conact_Name =  models.CharField(max_length=100)
-    Contact_Email = models.CharField(max_length=100)
-    Contact_Phone = models.CharField(max_length=100)
+    postalCode = models.IntegerField()
+    buildingAge = models.CharField(max_length=100)
+    freeParking = models.CharField(max_length=30, choices=select_option, default='yes')
+    swimmingPool = models.CharField(max_length=30, choices=select_option, default='yes')
+    airCondition = models.CharField(max_length=30, choices=select_option, default='yes')
+    sqft_Measurement = models.CharField(max_length=100)
+    contactName =  models.CharField(max_length=100)
+    contactEmail = models.CharField(max_length=100)
+    contactPhone = models.CharField(max_length=100)
     def __str__(self):
-        return self.Property_Title + '-' + self.status +'-' + self.price + '-' + self.location  + '-' + self.Conact_Name + '-' + self.Contact_Email +'-' + self.Contact_Phone + '-' + self.city
+        return self.propertyTitle + '-' + self.status +'-' + self.price + '-' + self.location  + '-' + self.contactName + '-' + self.contactEmail +'-' + self.contactPhone + '-' + self.city
 
 
 
@@ -80,12 +85,12 @@ class Localities(models.Model):
         ('iqbal town','iqbal town'),
         ('johar town', 'johar town'),
         ('defence', 'defence'),
-        ('awan town','awan town'),
-        ('wapda town','wapda town'),
-        ('eden','eden'),
-        ('lake city','lake city'),
+        ('Awan town','Awan town'),
+        ('Wapda town','Wapda town'),
+        ('Eden', 'Eden'),
+        ('Lake city', 'Lake city')
     )
-    location = models.CharField(max_length=30 , choices=locations_choice, default='mustafa town')
+    location = models.CharField(max_length=136, choices=locations_choice, default='johar town')
     rate_locality = models.IntegerField()
     rate_cleanliness = models.IntegerField()
     rate_security = models.IntegerField()
@@ -96,9 +101,10 @@ class Localities(models.Model):
         return self.location
 
 class Contact(models.Model):
+
     name = models.CharField(max_length=100)
-    subject = models.CharField(max_length=100)
     email = models.CharField(max_length=100)
+    subject = models.CharField(max_length=100)
     Phone_Number = models.CharField(max_length=100)
     Message = models.CharField(max_length=10000)
 

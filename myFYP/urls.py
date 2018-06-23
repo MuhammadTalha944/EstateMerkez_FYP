@@ -13,13 +13,13 @@ urlpatterns = [
 	url(r'^addproperty/$',views.addproperty, name='addproperty'),
     url(r'^About-Us/$',views.About.as_view(), name='About-Us'),
     url(r'^services/$',views.Services.as_view(), name='Our-Services'),
+    url(r'^nointernet/$',views.Nointernet.as_view(), name='nointernet'),
     url(r'^main_login/$',views.Main_login.as_view(),name='main_login'),
     url(r'^myproperties/$',views.myproperties, name='myproperties'),
     url(r'^(?P<product_id>[0-9]+)/$', views.detail, name='detail'),
     url(r'^properties/$',views.properties, name='properties'),
     #url(r'^(?P<id>[0-9]+)/$', views.edit, name='edit'),
     url(r'^Edit_property/(?P<pk>[0-9]+)/$', views.edit, name='edit'),
-    url(r'^delete_property/(?P<product_id>[0-9]+)/$', views.delete, name='delete'),
     url(r'^localities/$',views.localities, name='localities'),
     url(r'^seeReviews/$',views.seeReviews, name='seeReviews'),
     url(r'^mustafaTown/$',views.mustafaTown, name='mustafaTown'),
@@ -36,5 +36,6 @@ urlpatterns = [
     url(r'^lake_rev/$',views.lake_rev, name='lake_rev'),
     url(r'^register/$',views.register,name='register'),
     url(r'^valueAddedServices/$',views.valueAddedServices,name='valueAddedServices'),
+    url(r'^delete_property/(?P<product_id>[0-9]+)/$', views.delete, name='delete'),
 
 ]

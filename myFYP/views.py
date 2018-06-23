@@ -1,5 +1,4 @@
 from django.contrib.auth import login, logout, authenticate
-from django.http import HttpResponseForbidden, HttpResponseRedirect,Http404, HttpResponseNotFound, HttpResponse
 from django.shortcuts import render
 from django.core.urlresolvers import reverse_lazy
 from django.views.generic import CreateView,TemplateView
@@ -11,10 +10,27 @@ from django.contrib.auth.decorators import login_required
 from django.shortcuts import get_object_or_404
 from django.core.mail import send_mail, BadHeaderError, EmailMessage
 from django.contrib.messages import constants as messages
+from django.http import HttpResponseForbidden, HttpResponseRedirect, Http404, HttpResponseNotFound, HttpResponse
+from django.db.models import Avg
+
+
+class Nointernet(TemplateView):
+    template_name = "myFYP/nointernet.html"
+
 class SignUp(CreateView):
     form_class = forms.UserCreateForm
     success_url = reverse_lazy("login")
     template_name = "myFYP/signup.html"
+
+
+@login_required(login_url='/myFYP/signup/')
+def delete(request, product_id):
+    product = Products.objects.get(id=product_id)
+    product.delete()
+    #message.success(request,"deleted")
+    return properties(request)
+
+
 
 def contact(request):
     if request.method == 'POST':
@@ -33,10 +49,31 @@ def contact(request):
                                      ['estatemerkez@gmail.com'],
                                      reply_to=[from_email])
             email.send()
+
             form = contactForm()
             return render(request, 'myFYP/contact.html', {
                 'form': form
             })
+            '''
+            if subject and message and from_email:
+                try:
+                    send_mail(subject,
+                              str(form),
+                              from_email,
+                              ['smackburg@gmail.com'],
+                              fail_silently=False)
+                    return contact(request)
+                except BadHeaderError:
+                    return HttpResponse('Invalid header found.')
+                    '''
+                #messages.success(request, 'Enquiry email successfully sent')
+                #return render(request, 'myFYP/contact.html', {
+                #    'form': form
+                #})
+            '''
+            form.save()
+            return contact(request)
+            '''
     else:
         form = contactForm()
         return render(request, 'myFYP/contact.html', {
@@ -70,9 +107,7 @@ def addproperty(request):
         if form.is_valid():
             current_user = request.user
             emailad = current_user.email
-            email = EmailMessage('Property Added ', 'You have just uploaded a '
-                                                    'property on our site. Estate Merkez.com ... '
-                                                    'if this was not you then let us know ',
+            email = EmailMessage('Property Added ', 'You have just uploaded a property on our site EstateMerkez.com . The charges for this are 500 per property. if you would pay that then this property will be visible by anyone for next 3 months otherwise this would be removed if you would not pay. Contact to Mr.Talha for payments : +92 336 4738660',
                                  'estatemerkez@gmail.com',
                                  [emailad],
                                  reply_to=['estatemerkez@gmail.com'])
@@ -85,22 +120,44 @@ def addproperty(request):
         'form': form
     })
 
+
 def myproperties(request):
-    products = Products.objects.all()
-    return render(request, 'myFYP/myproperties.html' , {'products':products})
+    try:
+        products = Products.objects.all()
+    except products.DoesNotExist:
+        raise Http404("Property Does Not Exist")
+    return render(request, 'myFYP/myproperties.html',{'products':products})
+
 def iqbalTown(request):
-    products = Products.objects.filter(location="iqbal town")
+    try:
+        products = Products.objects.filter(location="iqbal town")
+    except products.DoesNotExist:
+        raise Http404("Property Does Not Exist")
     return render(request, 'myFYP/myproperties.html',{'products':products})
 
 def mustafaTown_properties(request):
-    products = Products.objects.filter(location="mustafa town")
+    try:
+        products = Products.objects.filter(location="mustafa town")
+    except products.DoesNotExist:
+        raise Http404("Property Does Not Exist")
     return render(request, 'myFYP/myproperties.html',{'products':products})
+
+
 def joharTown_properties(request):
-    products = Products.objects.filter(location="johar town")
+    try:
+        products = Products.objects.filter(location="johar town")
+    except products.DoesNotExist:
+        raise Http404("Property Does Not Exist")
     return render(request, 'myFYP/myproperties.html',{'products':products})
+
+
 def defence_properties(request):
-    products = Products.objects.filter(location="defence")
+    try:
+        products = Products.objects.filter(location="defence")
+    except products.DoesNotExist:
+        raise Http404("Property Does Not Exist")
     return render(request, 'myFYP/myproperties.html',{'products':products})
+
 
 def detail(request ,product_id):
     try:
@@ -109,18 +166,18 @@ def detail(request ,product_id):
         return render(request, 'myFYP/404.html')
     return render(request, 'myFYP/propertydetail.html',{'product':product})
 
-
-@login_required(login_url='/myFYP/signup/')
 def properties(request):
-    products = Products.objects.filter(user=request.user)
+    try:
+        products = Products.objects.filter(user=request.user)
+    except Products.DoesNotExist:
+        raise Http404('This products does not exist')
     return render(request, 'myFYP/userProperties.html',{'products':products})
+
 @login_required(login_url='/myFYP/signup/')
 def edit(request,pk):
     template = 'myFYP/submit-property.html'
-    try:
-        products = Products.objects.get(id=pk)
-    except:
-        return render(request, 'myFYP/404.html')
+    products = get_object_or_404(Products, pk=pk)
+
     if request.method == 'POST':
         form = ProductForm(request.POST,request.FILES, instance=products)
 
@@ -134,19 +191,10 @@ def edit(request,pk):
         form = ProductForm(instance=products)
 
     context = {
-        'form': form,
-        'products': products,
+        'form' : form,
+        'products' : products,
     }
     return render(request, template, context)
-
-#def edit(request):
-#    return render(request, 'myFYP/contact.html')
-@login_required(login_url='/myFYP/signup/')
-def delete(request, product_id):
-    product = Products.objects.get(id=product_id)
-    product.delete()
-    #message.success(request,"deleted")
-    return properties(request)
 
 @login_required(login_url='/myFYP/signup/')
 def localities(request):
@@ -163,35 +211,152 @@ def localities(request):
     return render(request, 'myFYP/addLocality.html',{'form': form})
 
 def seeReviews(request):
-    return render(request, 'myFYP/localities.html')
+    reviews1 = Localities.objects.filter(location="mustafa town")
+    average1 = reviews1.aggregate(average1=Avg('rate_locality'))
+
+    reviews2 = Localities.objects.filter(location="johar town")
+    average2 = reviews2.aggregate(average2=Avg('rate_locality'))
+
+    reviews3 = Localities.objects.filter(location="iqbal town")
+    average3 = reviews3.aggregate(average3=Avg('rate_locality'))
+
+    reviews4 = Localities.objects.filter(location="defence")
+    average4 = reviews4.aggregate(average4=Avg('rate_locality'))
+
+    reviews5 = Localities.objects.filter(location="Awan town")
+    average5 = reviews5.aggregate(average5=Avg('rate_locality'))
+
+    reviews6 = Localities.objects.filter(location="Wapda town")
+    average6 = reviews6.aggregate(average6=Avg('rate_locality'))
+
+    reviews7 = Localities.objects.filter(location="Eden")
+    average7 = reviews7.aggregate(average7=Avg('rate_locality'))
+
+    reviews8 = Localities.objects.filter(location="Lake city")
+    average8 = reviews8.aggregate(average8=Avg('rate_locality'))
+
+
+    return render(request, 'myFYP/localities.html',{'average1' : average1 , 'average2' : average2 ,
+                                                    'average3' : average3 , 'average4' : average4 ,
+                                                    'average5' : average5 , 'average6' : average6 ,
+                                                    'average7' : average7 , 'average8' : average8 ,
+                                                    })
 
 def mustafaTown(request):
     reviews = Localities.objects.filter(location="mustafa town")
-    return render(request, 'myFYP/detailedReview.html',{'reviews': reviews})
+
+    average = reviews.aggregate(average=Avg('rate_locality'))
+    parks = reviews.aggregate(parks=Avg('rate_parks'))
+    security = reviews.aggregate(security=Avg('rate_security'))
+    cleanliness = reviews.aggregate(cleanliness=Avg('rate_cleanliness'))
+    playgrounds = reviews.aggregate(playgrounds=Avg('playGrounds'))
+
+    return render(request, 'myFYP/detailedReview.html',{'reviews': reviews , 'average' : average ,
+                                                        'parks' : parks, 'security' : security,
+                                                        'cleanliness' : cleanliness,
+                                                        'playgrounds' : playgrounds
+                                                        })
+
 def iqbalTown_rev(request):
     reviews = Localities.objects.filter(location="iqbal town")
-    return render(request, 'myFYP/detailedReview.html',{'reviews': reviews})
+    average = reviews.aggregate(average=Avg('rate_locality'))
+    parks = reviews.aggregate(parks=Avg('rate_parks'))
+    security = reviews.aggregate(security=Avg('rate_security'))
+    cleanliness = reviews.aggregate(cleanliness=Avg('rate_cleanliness'))
+    playgrounds = reviews.aggregate(playgrounds=Avg('playGrounds'))
+
+    return render(request, 'myFYP/detailedReview.html',{'reviews': reviews , 'average' : average ,
+                                                        'parks' : parks, 'security' : security,
+                                                        'cleanliness' : cleanliness,
+                                                        'playgrounds' : playgrounds
+                                                        })
 
 def joharTown_rev(request):
     reviews = Localities.objects.filter(location="johar town")
-    return render(request, 'myFYP/detailedReview.html',{'reviews': reviews})
+    average = reviews.aggregate(average=Avg('rate_locality'))
+    parks = reviews.aggregate(parks=Avg('rate_parks'))
+    security = reviews.aggregate(security=Avg('rate_security'))
+    cleanliness = reviews.aggregate(cleanliness=Avg('rate_cleanliness'))
+    playgrounds = reviews.aggregate(playgrounds=Avg('playGrounds'))
+
+    return render(request, 'myFYP/detailedReview.html',{'reviews': reviews , 'average' : average ,
+                                                        'parks' : parks, 'security' : security,
+                                                        'cleanliness' : cleanliness,
+                                                        'playgrounds' : playgrounds
+                                                        })
+
 
 def defence_rev(request):
     reviews = Localities.objects.filter(location="defence")
-    return render(request, 'myFYP/detailedReview.html',{'reviews': reviews})
+    average = reviews.aggregate(average=Avg('rate_locality'))
+    parks = reviews.aggregate(parks=Avg('rate_parks'))
+    security = reviews.aggregate(security=Avg('rate_security'))
+    cleanliness = reviews.aggregate(cleanliness=Avg('rate_cleanliness'))
+    playgrounds = reviews.aggregate(playgrounds=Avg('playGrounds'))
+
+    return render(request, 'myFYP/detailedReview.html',{'reviews': reviews , 'average' : average ,
+                                                        'parks' : parks, 'security' : security,
+                                                        'cleanliness' : cleanliness,
+                                                        'playgrounds' : playgrounds
+                                                        })
+
 def awan_rev(request):
-    reviews = Localities.objects.filter(location="awan town")
-    return render(request, 'myFYP/detailedReview.html',{'reviews': reviews})
+    reviews = Localities.objects.filter(location="Awan town")
+    average = reviews.aggregate(average=Avg('rate_locality'))
+    parks = reviews.aggregate(parks=Avg('rate_parks'))
+    security = reviews.aggregate(security=Avg('rate_security'))
+    cleanliness = reviews.aggregate(cleanliness=Avg('rate_cleanliness'))
+    playgrounds = reviews.aggregate(playgrounds=Avg('playGrounds'))
+
+    return render(request, 'myFYP/detailedReview.html',{'reviews': reviews , 'average' : average ,
+                                                        'parks' : parks, 'security' : security,
+                                                        'cleanliness' : cleanliness,
+                                                        'playgrounds' : playgrounds
+                                                        })
 
 def wapda_Rev(request):
-    reviews = Localities.objects.filter(location="wapda town")
-    return render(request, 'myFYP/detailedReview.html',{'reviews': reviews})
+    reviews = Localities.objects.filter(location="Wapda town")
+    average = reviews.aggregate(average=Avg('rate_locality'))
+    parks = reviews.aggregate(parks=Avg('rate_parks'))
+    security = reviews.aggregate(security=Avg('rate_security'))
+    cleanliness = reviews.aggregate(cleanliness=Avg('rate_cleanliness'))
+    playgrounds = reviews.aggregate(playgrounds=Avg('playGrounds'))
+
+    return render(request, 'myFYP/detailedReview.html',{'reviews': reviews , 'average' : average ,
+                                                        'parks' : parks, 'security' : security,
+                                                        'cleanliness' : cleanliness,
+                                                        'playgrounds' : playgrounds
+                                                        })
+
 def eden_rev(request):
-    reviews = Localities.objects.filter(location="eden")
-    return render(request, 'myFYP/detailedReview.html',{'reviews': reviews})
+    reviews = Localities.objects.filter(location="Eden")
+    average = reviews.aggregate(average=Avg('rate_locality'))
+    parks = reviews.aggregate(parks=Avg('rate_parks'))
+    security = reviews.aggregate(security=Avg('rate_security'))
+    cleanliness = reviews.aggregate(cleanliness=Avg('rate_cleanliness'))
+    playgrounds = reviews.aggregate(playgrounds=Avg('playGrounds'))
+
+    return render(request, 'myFYP/detailedReview.html',{'reviews': reviews , 'average' : average ,
+                                                        'parks' : parks, 'security' : security,
+                                                        'cleanliness' : cleanliness,
+                                                        'playgrounds' : playgrounds
+                                                        })
+
 def lake_rev(request):
-    reviews = Localities.objects.filter(location="lake city")
-    return render(request, 'myFYP/detailedReview.html',{'reviews': reviews})
+    reviews = Localities.objects.filter(location="Lake city")
+    average = reviews.aggregate(average=Avg('rate_locality'))
+    parks = reviews.aggregate(parks=Avg('rate_parks'))
+    security = reviews.aggregate(security=Avg('rate_security'))
+    cleanliness = reviews.aggregate(cleanliness=Avg('rate_cleanliness'))
+    playgrounds = reviews.aggregate(playgrounds=Avg('playGrounds'))
+
+    return render(request, 'myFYP/detailedReview.html',{'reviews': reviews , 'average' : average ,
+                                                        'parks' : parks, 'security' : security,
+                                                        'cleanliness' : cleanliness,
+                                                        'playgrounds' : playgrounds
+                                                        })
+
+
 
 def register(request):
 

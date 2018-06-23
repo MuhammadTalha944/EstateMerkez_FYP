@@ -11,10 +11,10 @@
                   {% if registered %}
                   <h1>Thank you for registering!</h1>
                 {% else %}
-                  <h1>Register Here</h1>
-                  <h3>Just fill out the form.</h3>
+                  <h1>Be a part of Us</h1>
+                  <h3>Just fill out your Information</h3>
 
-                      <form enctype="multipart/form-data" method="POST">
+                  <form enctype="multipart/form-data" method="POST">
                     {% csrf_token %}
                     {% for hidden in user_form.hidden_fields %}
                       {{ hidden }}
@@ -42,16 +42,16 @@
                       </div>
                     {% endfor %}
 
-                                <button type="submit" class="search-button" >Sign up</button>
-                    <br>
-                      <div class="footer">
-                        <span>
-                            I want to <a href="{% url 'myFYP:main_login' %}">return to login</a>
+                    <button type="submit" class="search-button" >Sign up</button>
+        <br>
+          <div class="footer">
+            <span>
+                
 
-                        </span>
-                    </div>
-                    <br>
-                  </form>
+            </span>
+        </div>
+        <br>
+      </form>
 
                 {% endif %}
 
