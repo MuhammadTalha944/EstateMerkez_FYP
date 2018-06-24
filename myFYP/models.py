@@ -96,6 +96,8 @@ class Localities(models.Model):
     rate_security = models.IntegerField()
     rate_parks = models.IntegerField()
     playGrounds = models.IntegerField()
+    uploaded_At = models.DateTimeField(auto_now_add=True)
+
 
     def __str__(self):
         return self.location
