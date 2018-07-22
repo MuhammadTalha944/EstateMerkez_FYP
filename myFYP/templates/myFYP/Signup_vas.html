@@ -11,8 +11,8 @@
                   {% if registered %}
                   <h1>Thank you for registering!</h1>
                 {% else %}
-                  <h1>Be a part of Us</h1>
-                  <h3>Just fill out your Information</h3>
+                  <h1>Register Here</h1>
+                  <h3>Just fill out the form.</h3>
 
                   <form enctype="multipart/form-data" method="POST">
                     {% csrf_token %}
@@ -42,23 +42,22 @@
                       </div>
                     {% endfor %}
 
-                    <button type="submit" class="search-button" >Sign up</button>
-        <br>
-          <div class="footer">
-            <span>
-                
-
-            </span>
-        </div>
-        <br>
-      </form>
+                    <input type="submit" name="" value="Register">
+                    <br>
+                    <br>
+                  </form>
 
                 {% endif %}
 
                         <!-- Form end-->
                     </div>
                     <!-- Footer -->
+                    <div class="footer">
+                        <span>
+                            I want to <a href="{% url 'myFYP:login' %}">return to login</a>
 
+                        </span>
+                    </div>
                 </div>
                 <!-- Form content box end -->
             </div>

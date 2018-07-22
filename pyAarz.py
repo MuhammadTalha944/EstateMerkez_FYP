@@ -126,8 +126,8 @@ class Aarz:
 
             bedsnbath = info_div.find('div', attrs={'class': 'property-features'}).text.strip().split(" ")
 
-            single['beds'] = int(bedsnbath[1].strip())
-            single['bath'] = int(bedsnbath[-1])
+            # single['beds'] = int(bedsnbath[1].strip())
+            # single['bath'] = int(bedsnbath[-1])
 
             try:
                 single['description'] = info_div.find('div', attrs={'class': 'text-muted property-desc'}).p.text.strip()
@@ -148,7 +148,7 @@ class Aarz:
         try:
             page_info = soup.find('p', attrs={'class': 'text-muted text-center'}).text
         except AttributeError:
-            return 1, 1, listings
+            return listings
 
         # current_page = int(page_info.strip().split(" ")[1])
         # total_pages = int(page_info.strip().split(" ")[-1])

@@ -37,14 +37,10 @@ class UserProfileInfo(models.Model):
 class Products(models.Model):
     user = UserForeignKey(auto_user_add=True, verbose_name="The user that is automatically assigned", related_name="mymodels")
     Area_Choices = (
-        ('mustafa town','mustafa town'),
-        ('iqbal town','iqbal town'),
+        ('mustafa town', 'mustafa town'),
         ('johar town', 'johar town'),
+        ('iqbal town', 'iqbal town'),
         ('defence', 'defence'),
-        ('Awan town','Awan town'),
-        ('Wapda town','Wapda town'),
-        ('Eden', 'Eden'),
-        ('Lake city', 'Lake city')
     )
     select_option = (
         ('yes','yes'),('no','no')
@@ -85,10 +81,10 @@ class Localities(models.Model):
         ('iqbal town','iqbal town'),
         ('johar town', 'johar town'),
         ('defence', 'defence'),
-        ('Awan town','Awan town'),
-        ('Wapda town','Wapda town'),
+        ('defence', 'defence'),
+        ('Awan town', 'Awan town'),
         ('Eden', 'Eden'),
-        ('Lake city', 'Lake city')
+        ('Wapda town', 'Wapda town'),
     )
     location = models.CharField(max_length=136, choices=locations_choice, default='johar town')
     rate_locality = models.IntegerField()
@@ -96,8 +92,8 @@ class Localities(models.Model):
     rate_security = models.IntegerField()
     rate_parks = models.IntegerField()
     playGrounds = models.IntegerField()
+    description = models.CharField(max_length=20000 )
     uploaded_At = models.DateTimeField(auto_now_add=True)
-
 
     def __str__(self):
         return self.location

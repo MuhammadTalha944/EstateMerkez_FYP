@@ -70,13 +70,11 @@
 
                       <div class="col-lg-2 col-md-2 col-sm-4 col-xs-4">
                           <div class="form-group">
-                            <label>Data from</label>
 
                               <select class="selectpicker search-fields" name="website" required="required">
+
                                   <option>Zameen</option>
                                   <option>Aarz</option>
-                                  <option>Lamudi</option>
-
                               </select>
                           </div>
                       </div>
@@ -84,8 +82,6 @@
 
                       <div class="col-lg-2 col-md-2 col-sm-4 col-xs-4">
                           <div class="form-group">
-                            <label>Area</label>
-
                               <select class="selectpicker search-fields" name="locations"  required>
 
                                   <option>Johar Town</option>
@@ -94,19 +90,14 @@
                                   <option>Wapda Town</option>
                                   <option>Model Town</option>
                                   <option>Samanabad</option>
-                                  <option>Sabzazar Scheme</option>
+								  <option>Nasheman-e-iqbal</option>
                                   <option>Gulberg</option>
                                   <option>Paragon City</option>
                                   <option>Harbanspura</option>
-                                  <option>Cavalry Ground</option>
                                   <option>Township</option>
-                                  <option>Eden</option>
                                   <option>DHA</option>
                                   <option>Garden Town</option>
-                                  <option>EME Society</option>
                                   <option>Faisal Town</option>
-                                  <option>Gulshan-e-Ravi</option>
-                                  <option>Punjab Coop Housing Society</option>
 
                               </select>
                           </div>
@@ -114,10 +105,7 @@
 
                       <div class="col-lg-2 col-md-2 col-sm-4 col-xs-4">
                           <div class="form-group">
-                            <label>Type</label>
-
                               <select class="selectpicker search-fields" name="mytextbox" required="required">
-
                                   <option>Buy</option>
                                   <option>Rent</option>
                               </select>
@@ -126,8 +114,6 @@
 
           <div class="col-lg-2 col-md-2 col-sm-4 col-xs-4">
                           <div class="form-group">
-                            <label>Min Price</label>
-
                               <input class="selectpicker search-fields"  id="123" placeholder="&nbsp; &nbsp; Min Price" type="number" min="25000" step="5000" name="myminbox" required="required" onchange="document.getElementById('cash').min=this.value;">
 
                               </input>
@@ -136,8 +122,6 @@
 
           <div class="col-lg-2 col-md-2 col-sm-4 col-xs-4">
                           <div class="form-group">
-                            <label>Max Price</label>
-
                               <input class="selectpicker search-fields" id="cash" placeholder="&nbsp; &nbsp;Max Price" type="number" min="document.getElementById('123').value" step="5000" name="mymaxbox" required>
 
                               </input>
@@ -145,7 +129,6 @@
           </div>
 
                       <div class="col-lg-2 col-md-2 col-sm-4 col-xs-4 ">
-                        <label></label>
                             <div class="form-group">
 
                                 <button type="submit" class="search-button" value="Search" name="mybtn">Find</button>
@@ -239,6 +222,7 @@
                                         <h3><b>price:{{ j }}</b></h3>
                                       {% endif %}
 
+
                                     {% endfor %}
 
                                   </div>
@@ -269,28 +253,43 @@
                 <div class="content">
                     <i class="flaticon-apartment"></i>
                     <h4>Apartments</h4>
-
+                    <p>
+                       The well furnished appartments and the best thing for you is here
+                        so come and join us and find your desired property
+                    </p>
                 </div>
             </div>
             <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 wow fadeInLeft delay-04s">
                 <div class="content">
                     <i class="flaticon-internet"></i>
                     <h4> Buy Houses</h4>
+                    <p>
 
+                         The well furnished Houses and the best thing for you is here
+                          so come and join us and find your desired property
+                    </p>
                 </div>
             </div>
          <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 wow fadeInLeft delay-04s">
                 <div class="content">
                     <i class="flaticon-internet"></i>
                     <h4>plots</h4>
+                    <p>
 
+                         The awesome plots and the best thing for you is here
+                          so come and join us and find your desired property
+                    </p>
                 </div>
             </div>
             <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 wow fadeInRight delay-04s">
                 <div class="content">
                     <i class="flaticon-symbol"></i>
                     <h4>Rent House</h4>
+                    <p>
 
+                         The well furnished Houses for rent and the best thing for you is here
+                          so come and join us and find your desired property
+                    </p>
                 </div>
             </div>
         </div>
@@ -513,5 +512,123 @@
 </div>
 <!-- Agent section end -->
 
+<!-- Testimonial section start-->
+<div class="testimonial-section testimonial-2 testimonial-3">
+    <div class="testimonial-section-inner">
+        <div class="container">
+            <div class="main-title">
+
+            </div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="testimonials">
+                        <div id="carouse3-example-generic" class="carousel slide" data-ride="carousel">
+                            <!-- Indicators -->
+                            <!-- Wrapper for slides -->
+                            <div class="carousel-inner" role="listbox">
+                                <div class="item content clearfix active">
+                                    <div class="row">
+                                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                                            <div class="avatar">
+                                                <img src="{% static 'myFYP/img/avatar/avatar-1.jpg '%}" alt="avatar-1" class="img-responsive">
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
+                                            <div class="testimonials-info">
+                                                <div class="text">
+                                                    <sup>
+                                                        <i class="fa fa-quote-left"></i>
+                                                    </sup>
+                                                    Had a great experience with <b>EstateMarkez.com</b> . A great team with full coordination and always there for your help.
+                                                    i would recommand everyone who are interested in online buying the property must atleast once contact with this team.
+                                                    Thanks
+                                                    <sub>
+                                                        <i class="fa fa-quote-right"></i>
+                                                    </sub>
+                                                </div>
+                                                <div class="author-name">
+                                                    John Antony
+                                                </div>
+                                                <ul class="rating">
+                                                    <li>
+                                                        <i class="fa fa-star"></i>
+                                                    </li>
+                                                    <li>
+                                                        <i class="fa fa-star"></i>
+                                                    </li>
+                                                    <li>
+                                                        <i class="fa fa-star"></i>
+                                                    </li>
+                                                    <li>
+                                                        <i class="fa fa-star"></i>
+                                                    </li>
+                                                    <li>
+                                                        <i class="fa fa-star-half-full"></i>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Controls -->
+                            <a class="left carousel-control" href="#carouse3-example-generic" role="button" data-slide="prev">
+                                <span class="slider-mover-left" aria-hidden="true">
+                                    <i class="fa fa-angle-left"></i>
+                                </span>
+                                <span class="sr-only">Previous</span>
+                            </a>
+                            <a class="right carousel-control" href="#carouse3-example-generic" role="button" data-slide="next">
+                                 <span class="slider-mover-right" aria-hidden="true">
+                                      <i class="fa fa-angle-right"></i>
+                                 </span>
+                                <span class="sr-only">Next</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Testimonial section end -->
+<div class="clearfix"></div>
+
+<!-- Counters strat -->
+<div class="counters">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3 col-sm-6 bordered-right">
+                <div class="counter-box">
+                    <i class="flaticon-tag"></i>
+                    <h1 class="counter">967</h1>
+                    <p>Listings For Sale</p>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6 bordered-right">
+                <div class="counter-box">
+                    <i class="flaticon-symbol-1"></i>
+                    <h1 class="counter">1276</h1>
+                    <p>Listings For Rent</p>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6 bordered-right">
+                <div class="counter-box">
+                    <i class="flaticon-people"></i>
+                    <h1 class="counter">396</h1>
+                    <p>Agents</p>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6">
+                <div class="counter-box">
+                    <i class="flaticon-people-1"></i>
+                    <h1 class="counter">177</h1>
+                    <p>Brokers</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Counters end -->
 
 {% endblock %}

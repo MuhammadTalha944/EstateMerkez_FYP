@@ -28,9 +28,7 @@ class UserForm(forms.ModelForm):
 class UserProfileInfoForm(forms.ModelForm):
     class Meta:
         model = UserProfileInfo
-        fields = ('portfolio_site','profile_pic','type')
-
-
+        fields = ('profile_pic','type')
 
 
 class ProductForm(forms.ModelForm):
@@ -57,6 +55,7 @@ class contactForm(forms.ModelForm):
 
 
 class LocalitiesForm(forms.ModelForm):
+    description = forms.CharField( widget=forms.Textarea)
     rate_cleanliness = forms.IntegerField(min_value=0, max_value=5,
         label='Rate Cleanliness',
         widget=forms.NumberInput(attrs={'placeholder': 'Rate out of 5'})
